@@ -3,7 +3,7 @@
 ## Objetivo:
 
 Este exercício consiste em criar uma imagem Docker baseada no Alpine Linux que, ao ser executada, imprime a mensagem:
-![visão geral](imagem_exe01.png)
+![visão geral](docker-exercicio-01/imagem_exe01.png)
 
 
 ---
