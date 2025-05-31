@@ -1,87 +1,66 @@
-### **Exercício 04 - Dockerfile com Python:3.11 e script para mostrar data e hora**
+# Exercício 04 - Docker + MySQL com Volume
 
-**Objetivo:**
-Criar uma imagem Docker personalizada baseada na imagem oficial `python:3.11-slim`. O container deve executar um script Python simples que imprime a data e hora atual.
+## Descrição
 
----
+Este exercício consistiu em:
 
-### Estrutura de pastas:
-
-```
-docker-exercicio-04/
-├── Dockerfile
-├── script.py
-└── README.md
-```
+1. Subir um container MySQL (`mysql:5.7`)
+2. Utilizar um volume nomeado para persistência de dados
+3. Criar um banco de dados dentro do container
+4. Parar o container e subi-lo novamente
+5. Verificar se os dados persistiram corretamente
 
 ---
 
-### `script.py`
+## Comandos Utilizados
 
-```python
-from datetime import datetime
-
-print("Data e hora atual:", datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
-```
-
----
-
-### `Dockerfile`
-
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-
-COPY script.py .
-
-CMD ["python", "script.py"]
-```
-
----
-
-### `README.md`
-
-````markdown
-# Exercício 04 - Imagem Docker com Python 3.11
-
-## Objetivo
-
-Criar uma imagem Docker personalizada baseada na imagem `python:3.11-slim`. O container deve executar um script Python que exibe a data e hora atual.
-
-## Instruções
-
-1. Crie o arquivo `script.py` com o seguinte conteúdo:
-
-```python
-from datetime import datetime
-
-print("Data e hora atual:", datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+### Criar volume:
+```bash
+docker volume create mysql_data
 ````
 
-2. Crie um `Dockerfile` com as instruções:
-
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-
-COPY script.py .
-
-CMD ["python", "script.py"]
-```
-
-3. Para construir e executar a imagem:
+### Subir container:
 
 ```bash
-docker build -t exercicio04-python .
-docker run exercicio04-python
+docker run -d \
+  --name mysql_container \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -v mysql_data:/var/lib/mysql \
+  -p 3306:3306 \
+  mysql:5.7
 ```
 
-## Resultado Esperado
+### Acessar o MySQL:
 
-Ao executar o container, o terminal exibirá a data e hora atual no formato:
+```bash
+docker exec -it mysql_container mysql -uroot -proot
+```
 
+### Criar banco de dados:
+
+```sql
+CREATE DATABASE meu_banco;
 ```
-Data e hora atual: 30/05/2025 21:47:00
+
+### Parar e subir novamente:
+
+```bash
+docker stop mysql_container
+docker start mysql_container
 ```
+
+### Verificar persistência:
+
+```bash
+docker exec -it mysql_container mysql -uroot -proot
+SHOW DATABASES;
+```
+
+---
+
+## Resultado
+
+Após reiniciar o container, o banco de dados `meu_banco` ainda estava presente, comprovando que os dados foram persistidos com sucesso no volume nomeado.
+
+![visão geral](./imagem_exe04.png)
+
