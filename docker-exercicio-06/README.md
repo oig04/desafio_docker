@@ -86,3 +86,5 @@ Agora a aplicação estará disponível localmente na porta 8080.
 * **Variáveis de ambiente Go**: como `CGO_ENABLED=0` e `GOOS=linux`, que ajudam a gerar binários otimizados.
 
 ---
+
+![visão geral](./imagem_exe06.png)
