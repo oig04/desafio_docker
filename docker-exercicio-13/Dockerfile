@@ -1,8 +1,15 @@
-# Dockerfile
 FROM python:3.11-slim
+
+RUN useradd -m yuri
 
 WORKDIR /app
 
-COPY script.py .
+COPY requirements.txt .
 
-CMD ["python", "script.py"]
+RUN pip install --no-cache-dir -r requirements.txt
+
+USER giovanna
+
+COPY . .
+
+CMD ["python", "app.py"]
