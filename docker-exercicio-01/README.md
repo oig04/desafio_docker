@@ -67,4 +67,3 @@ Olá, Docker!
 * Como criar uma imagem Docker mínima com Alpine.
 * Como usar o `CMD` para executar comandos simples.
 * Como construir e executar uma imagem localmente.
-# desafio_docker
