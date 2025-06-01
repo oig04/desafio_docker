@@ -15,8 +15,6 @@ trivy image --severity HIGH,CRITICAL python:3.9
 
 ## Vulnerabilidades encontradas
 
-![Resultado do Trivy](./imagem_exe11.png)
-
 A análise da imagem retornou **3 vulnerabilidades de severidade HIGH** relacionadas ao pacote `setuptools`.
 
 | Biblioteca | Vulnerabilidade | Severidade | Versão instalada | Versão corrigida | Descrição                                                                                                               |
@@ -30,7 +28,7 @@ A análise da imagem retornou **3 vulnerabilidades de severidade HIGH** relacion
 
 > Adicione aqui a captura de tela do terminal com a execução do Trivy:
 
-![Resultado do Trivy](./evidencias/print_trivy.png)
+![visaogeral](./imagem_exe11.png)
 
 ---
 
