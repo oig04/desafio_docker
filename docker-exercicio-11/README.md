@@ -24,18 +24,14 @@ A análise da imagem retornou **3 vulnerabilidades de severidade HIGH** relacion
 
 ---
 
-## Evidência
-
-> Adicione aqui a captura de tela do terminal com a execução do Trivy:
-
-![visaogeral](./imagem_exe11.png)
+![visão geral](./imagem_exe011.png)
 
 ---
 
 ## Ações Recomendadas
 
-**Atualizar o pacote `setuptools`** para pelo menos a versão `70.0.0`, que corrige as vulnerabilidades detectadas.
-**Considerar o uso da imagem `python:3.9-slim`**, que possui menos dependências e menor superfície de ataque.
+* **Atualizar o pacote `setuptools`** para pelo menos a versão `70.0.0`, que corrige as vulnerabilidades detectadas.
+* **Considerar o uso da imagem `python:3.9-slim`**, que possui menos dependências e menor superfície de ataque.
 * Caso o `setuptools` esteja sendo adicionado via `pip` em etapas posteriores no Dockerfile, garantir que a versão usada seja a mais atual e segura.
 * Adicionar o scan com Trivy como etapa de CI para análises contínuas em builds futuros.
 
