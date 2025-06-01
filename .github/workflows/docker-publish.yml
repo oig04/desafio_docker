@@ -25,4 +25,4 @@ jobs:
         context: ./docker-exercicio-13
         file: ./docker-exercicio-13/Dockerfile
         push: true
-        tags: seuusuario/seurepositorio:latest
+        tags: oig/exercicio13:latest
