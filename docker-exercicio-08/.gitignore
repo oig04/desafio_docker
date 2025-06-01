@@ -1,0 +1,6 @@
+# Arquivos de variáveis de ambiente
+.env
+
+# Diretórios com configs/senhas sensíveis
+secrets/
+config/
