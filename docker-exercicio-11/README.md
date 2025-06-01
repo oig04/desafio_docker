@@ -24,7 +24,7 @@ A análise da imagem retornou **3 vulnerabilidades de severidade HIGH** relacion
 
 ---
 
-![visão geral](./imagem_exe011.png)
+![visaogeral](./imagem_exe011.png)
 
 ---
 
