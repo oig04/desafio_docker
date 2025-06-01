@@ -1,14 +1,15 @@
 FROM python:3.9-slim
 
+RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-RUN adduser --disabled-password --gecos '' appuser &&     chown -R appuser /app
-
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install --upgrade pip setuptools wheel
+
+RUN pip install -r requirements.txt
 
 COPY . .
-
-USER appuser
 
 CMD ["python", "app.py"]
