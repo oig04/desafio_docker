@@ -72,12 +72,6 @@ docker push oig04/exercicio13:latest
 ![visão geral](./imagem_exe13_2.png)
 ---
 
-## Link da imagem publicada
-
-[Acesse sua imagem no Docker Hub](https://hub.docker.com/r/oig04/exercicio13)
-
----
-
 ## Resultado esperado
 
 Ao rodar o container, o script Python imprime a data e hora atual no terminal.
